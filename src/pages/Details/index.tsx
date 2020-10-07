@@ -7,7 +7,7 @@ interface IParams {
 
 const Details: React.FC = () => {
   const { countryId }: IParams = useParams();
-
+  console.log('Details');
   return (
     <h1>
       Details:
