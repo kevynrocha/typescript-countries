@@ -4,11 +4,15 @@ import { HiSearch } from 'react-icons/hi';
 export const ContainerInput = styled.div`
   display: flex;
   align-items: center;
-  width: 300px;
+  width: 100%;
   border-radius: 4px;
   padding: 0 16px;
   height: 40px;
   background-color: ${({ theme }) => theme.colors.element};
+
+  @media (min-width: 768px) {
+    max-width: 300px;
+  }
 `;
 
 export const CountryInput = styled.input`
