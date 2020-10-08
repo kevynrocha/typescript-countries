@@ -7,7 +7,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body, button, input {
+  body, button, input, select {
     font-family: 'Nunito Sans';
     font-size: 14px;
   }
@@ -20,6 +20,11 @@ export default createGlobalStyle`
   }
 
   input {
+    border: none;
+    outline: none;
+  }
+
+  select {
     border: none;
     outline: none;
   }
