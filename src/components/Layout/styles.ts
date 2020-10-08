@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.background };
+  background-color: ${({ theme }) => theme.colors.background};
   min-height: 100vh;
 `;
 
 export const Container = styled.div`
   margin: 32px auto;
+  padding: 0 16px;
   max-width: 1150px;
 `;

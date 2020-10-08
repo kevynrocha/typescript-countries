@@ -9,9 +9,7 @@ interface IProps {
 const Layout: React.FC<IProps> = ({ children }: IProps) => (
   <Wrapper>
     <Header />
-    <Container>
-      {children}
-    </Container>
+    <Container>{children}</Container>
   </Wrapper>
 );
 
