@@ -29,6 +29,10 @@ export default createGlobalStyle`
     outline: none;
   }
 
+  img {
+    max-width: 100%;
+  }
+
   h1 {
     font-size: 1rem;
   }
