@@ -17,9 +17,13 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 800;
   color: #fff;
+
+  @media (min-width: 768px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const TitleMode = styled.button`
