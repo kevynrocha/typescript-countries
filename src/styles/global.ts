@@ -19,6 +19,11 @@ export default createGlobalStyle`
     background: inherit;
   }
 
+  input {
+    border: none;
+    outline: none;
+  }
+
   h1 {
     font-size: 1rem;
   }
