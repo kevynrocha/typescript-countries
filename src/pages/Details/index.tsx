@@ -1,17 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-interface IParams {
-  countryId: string | undefined;
+interface CountryParams {
+  id: string | undefined;
 }
 
 const Details: React.FC = () => {
-  const { countryId }: IParams = useParams();
+  const { id }: CountryParams = useParams();
   console.log('Details');
   return (
     <h1>
       Details:
-      {countryId}
+      {id}
     </h1>
   );
 };
