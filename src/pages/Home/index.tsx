@@ -1,13 +1,69 @@
 import React from 'react';
-import Button from '../../components/Button';
+import Card from '../../components/Card';
+import Input from '../../components/Input';
+import Select from '../../components/Select';
+
+import { FilterContainer, HomeContainer } from './styles';
 
 const Home: React.FC = () => {
   console.log('home');
 
   return (
     <>
-      <h1>Home</h1>
-      <Button title="teste" />
+      <FilterContainer>
+        <Input />
+        <Select />
+      </FilterContainer>
+
+      <HomeContainer>
+        <Card
+          image="https://restcountries.eu/data/bra.svg"
+          country="Brazil"
+          population="81,770,900"
+          region="Europe"
+          capital="Berlin"
+        />
+
+        <Card
+          image="https://restcountries.eu/data/bra.svg"
+          country="Brazil"
+          population="81,770,900"
+          region="Europe"
+          capital="Berlin"
+        />
+
+        <Card
+          image="https://restcountries.eu/data/bra.svg"
+          country="Brazil"
+          population="81,770,900"
+          region="Europe"
+          capital="Berlin"
+        />
+
+        <Card
+          image="https://restcountries.eu/data/bra.svg"
+          country="Brazil"
+          population="81,770,900"
+          region="Europe"
+          capital="Berlin"
+        />
+
+        <Card
+          image="https://restcountries.eu/data/bra.svg"
+          country="Brazil"
+          population="81,770,900"
+          region="Europe"
+          capital="Berlin"
+        />
+
+        <Card
+          image="https://restcountries.eu/data/bra.svg"
+          country="Brazil"
+          population="81,770,900"
+          region="Europe"
+          capital="Berlin"
+        />
+      </HomeContainer>
     </>
   );
 };
