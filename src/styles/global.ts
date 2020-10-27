@@ -7,6 +7,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    background-color: ${({ theme }) => theme.colors.background};
+  }
+
   body, button, input, select {
     font-family: 'Nunito Sans';
     font-size: 14px;
@@ -38,15 +42,14 @@ export default createGlobalStyle`
   }
 
   h2 {
-    font-size: 30px;
+    font-size: 0.8rem;
   }
 
   h3 {
-    font-size: 30px;
+    font-size: 0.6rem;
   }
 
   h4 {
-    font-size: 30px;
+    font-size: 0.4rem;
   }
-
 `;
