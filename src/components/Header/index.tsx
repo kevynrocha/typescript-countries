@@ -1,20 +1,19 @@
 import React from 'react';
 
-// eslint-disable-next-line object-curly-newline
-import { CountryHeader, Container, Title, TitleMode, Icon } from './styles';
+import * as S from './styles';
 
 const Header: React.FC = () => {
   console.log('header');
   return (
-    <CountryHeader>
-      <Container>
-        <Title>Where in the world?</Title>
-        <TitleMode>
-          <Icon />
+    <S.CountryHeader>
+      <S.Container>
+        <S.Title>Where in the world?</S.Title>
+        <S.TitleMode>
+          <S.Icon />
           Dark Mode
-        </TitleMode>
-      </Container>
-    </CountryHeader>
+        </S.TitleMode>
+      </S.Container>
+    </S.CountryHeader>
   );
 };
 
