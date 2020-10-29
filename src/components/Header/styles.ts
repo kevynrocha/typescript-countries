@@ -3,7 +3,7 @@ import { RiMoonFill } from 'react-icons/ri';
 
 export const CountryHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.element};
-  box-shadow: 0 0 4px #000;
+  box-shadow: 0 0 4px ${({ theme }) => theme.colors.shadow};
   width: 100%;
 `;
 
@@ -19,7 +19,7 @@ export const Container = styled.div`
 export const Title = styled.h2`
   font-size: 1rem;
   font-weight: 800;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.text};
 
   @media (min-width: 768px) {
     font-size: 1.4rem;
@@ -28,7 +28,7 @@ export const Title = styled.h2`
 
 export const TitleMode = styled.button`
   font-size: 1rem;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.text};
   display: flex;
   align-items: center;
 `;

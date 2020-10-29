@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.element};
-  box-shadow: 0 0 4px #000;
+  box-shadow: 0 0 4px ${({ theme }) => theme.colors.shadow};
   width: 100%;
   border-radius: 4px;
   overflow: hidden;
