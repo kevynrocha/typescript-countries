@@ -9,6 +9,7 @@ export const ContainerInput = styled.div`
   padding: 0 16px;
   height: 40px;
   background-color: ${({ theme }) => theme.colors.element};
+  box-shadow: 0 0 4px ${({ theme }) => theme.colors.shadow};
 
   @media (min-width: 768px) {
     max-width: 300px;
