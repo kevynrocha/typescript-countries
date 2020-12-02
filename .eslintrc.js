@@ -24,6 +24,7 @@ module.exports = {
     'no-console': 'off',
     'no-use-before-define': 'off',
     'prettier/prettier': 'error',
+    'react/require-default-props': 'off',
     'react/jsx-filename-extension': [
       2,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
