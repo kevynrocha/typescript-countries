@@ -9,10 +9,11 @@ export default createGlobalStyle`
 
   html {
     background-color: ${({ theme }) => theme.colors.background};
+    overflow-x: hidden;
   }
 
   body, button, input, select {
-    font-family: 'Nunito Sans';
+    font-family: 'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14px;
   }
 
