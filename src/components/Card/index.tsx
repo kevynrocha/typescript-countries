@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({
 }: CardProps) => {
   console.log('card');
   return (
-    <S.Wrapper>
+    <S.Wrapper to={`country/${country}`}>
       <S.Image src={image} alt={country} />
       <S.Container>
         <S.Title>{country}</S.Title>
