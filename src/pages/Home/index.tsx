@@ -16,53 +16,16 @@ const Home: React.FC = () => {
       </FilterContainer>
 
       <HomeContainer>
-        <Card
-          image="https://restcountries.eu/data/bra.svg"
-          country="Brazil"
-          population="81,770,900"
-          region="Europe"
-          capital="Berlin"
-        />
-
-        <Card
-          image="https://restcountries.eu/data/bra.svg"
-          country="Brazil"
-          population="81,770,900"
-          region="Europe"
-          capital="Berlin"
-        />
-
-        <Card
-          image="https://restcountries.eu/data/bra.svg"
-          country="Brazil"
-          population="81,770,900"
-          region="Europe"
-          capital="Berlin"
-        />
-
-        <Card
-          image="https://restcountries.eu/data/bra.svg"
-          country="Brazil"
-          population="81,770,900"
-          region="Europe"
-          capital="Berlin"
-        />
-
-        <Card
-          image="https://restcountries.eu/data/bra.svg"
-          country="Brazil"
-          population="81,770,900"
-          region="Europe"
-          capital="Berlin"
-        />
-
-        <Card
-          image="https://restcountries.eu/data/bra.svg"
-          country="Brazil"
-          population="81,770,900"
-          region="Europe"
-          capital="Berlin"
-        />
+        {Array.from({ length: 10 }).map((_, index) => (
+          <Card
+            index={index}
+            image="https://restcountries.eu/data/bra.svg"
+            country="Brazil"
+            population="81,770,900"
+            region="Europe"
+            capital="Berlin"
+          />
+        ))}
       </HomeContainer>
     </>
   );
