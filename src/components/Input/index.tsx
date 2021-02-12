@@ -12,4 +12,4 @@ const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = props => {
   );
 };
 
-export default Input;
+export default React.memo(Input);

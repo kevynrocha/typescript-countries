@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 
 import {
@@ -59,15 +59,21 @@ const Home: React.FC = () => {
     setFilteredCountries(results);
   }, [search, countries]);
 
-  const handleFilterCountry = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = e.target;
-    setSearch({ ...search, [name]: value });
-  };
+  const handleFilterCountry = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { value, name } = e.target;
+      setSearch({ ...search, [name]: value });
+    },
+    [search]
+  );
 
-  const handleFilterRegion = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value, name } = e.target;
-    setSearch({ ...search, [name]: value });
-  };
+  const handleFilterRegion = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const { value, name } = e.target;
+      setSearch({ ...search, [name]: value });
+    },
+    [search]
+  );
 
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>Error: {error.message}(</h1>;
