@@ -11,7 +11,7 @@ import Card from '../../components/Card';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
 
-import { FilterContainer, HomeContainer } from './styles';
+import * as S from './styles';
 
 const Home: React.FC = () => {
   const { loading, error, data } = useQuery<CountryResponse>(LOAD_COUNTRIES);
@@ -75,12 +75,12 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <FilterContainer>
+      <S.FilterContainer>
         <Input onChange={handleFilterCountry} name="country" />
         <Select options={regions} onChange={handleFilterRegion} name="region" />
-      </FilterContainer>
+      </S.FilterContainer>
 
-      <HomeContainer>
+      <S.HomeContainer>
         {filteredCountries.map((country, index) => (
           <Card
             key={country.id}
@@ -93,7 +93,7 @@ const Home: React.FC = () => {
             capital={country.capital}
           />
         ))}
-      </HomeContainer>
+      </S.HomeContainer>
     </>
   );
 };
