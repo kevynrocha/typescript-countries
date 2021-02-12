@@ -1,5 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
+
+import {
+  CountryDetails,
+  CountryDetailsResponse,
+  LOAD_COUNTRY,
+} from '../../graphql/queries';
+import { getFormattedNumbers } from '../../utils/functions';
 
 import Button from '../../components/Button';
 
@@ -8,59 +16,107 @@ import * as S from './styles';
 interface CountryParams {
   id: string | undefined;
 }
-
 const Details: React.FC = () => {
   const { id }: CountryParams = useParams();
-  console.log('Details', id);
+  const { loading, error, data } = useQuery<{
+    country: CountryDetailsResponse;
+  }>(LOAD_COUNTRY, {
+    variables: { id },
+  });
+  const [country, setCountry] = useState<CountryDetails>({
+    name: '',
+    nativeName: '',
+    borders: [],
+    capital: '',
+    flag: '',
+    population: 0,
+    region: '',
+    subregion: '',
+    topLevelDomain: [],
+    currencies: [],
+    languages: [],
+  });
+
+  useEffect(() => {
+    if (data) {
+      const currencies = data.country.currencies.edges.map(
+        currency => currency.node.name
+      );
+      const languages = data.country.languages.edges.map(
+        language => language.node.name
+      );
+
+      const updatedCountry: CountryDetails = {
+        ...data.country,
+        currencies,
+        languages,
+      };
+
+      setCountry(updatedCountry);
+    }
+  }, [data]);
+
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>Error: {error.message}(</h1>;
+  if (!data) return <h1>Not found...</h1>;
+
   return (
     <>
       <Button title="Back" to="/" leftIcon />
       <S.Container>
         <S.ContainerImage>
-          <S.Image src="https://restcountries.eu/data/bra.svg" alt="Brazil" />
+          <S.Image src={country.flag} alt={country.name} />
         </S.ContainerImage>
         <S.ContainerDescription>
-          <S.Title>Brazil</S.Title>
+          <S.Title>{country.name}</S.Title>
           <S.FlexRow>
             <S.ContainerText>
               <S.Subtitle>
-                Native Name: <span>Brasil</span>
+                Native Name: <span>{country.nativeName}</span>
               </S.Subtitle>
               <S.Subtitle>
-                Population: <span>11,319.922</span>
+                Population:{' '}
+                <span>{getFormattedNumbers(country.population)}</span>
               </S.Subtitle>
               <S.Subtitle>
-                Region: <span>America</span>
+                Region: <span>{country.region}</span>
               </S.Subtitle>
               <S.Subtitle>
-                Sub Region: <span>EHHHE</span>
+                Sub Region: <span>{country.subregion}</span>
               </S.Subtitle>
               <S.Subtitle>
-                Capital: <span>Brasília</span>
+                Capital: <span>{country.capital}</span>
               </S.Subtitle>
             </S.ContainerText>
 
             <S.ContainerText>
               <S.Subtitle>
-                Top level domain: <span>be</span>
+                Top level domain:{' '}
+                <span>{country.topLevelDomain.join(', ')}</span>
               </S.Subtitle>
               <S.Subtitle>
-                Currencies: <span>Euro</span>
+                Currencies: <span>{country.currencies.join(', ')}</span>
               </S.Subtitle>
               <S.Subtitle>
-                Languages: <span>Dutch</span>
+                Languages: <span>{country.languages.join(', ')}</span>
               </S.Subtitle>
             </S.ContainerText>
           </S.FlexRow>
 
-          <S.FlexRow>
-            <S.BorderTitle>Border Countries:</S.BorderTitle>
-            <S.ContainerButtons>
-              <Button title="France" to="country/France" />
-              <Button title="Germany" to="country/Germany" />
-              <Button title="Netherlands" to="country/$Netherlands" />
-            </S.ContainerButtons>
-          </S.FlexRow>
+          {!!country.borders.length && (
+            <S.FlexRow>
+              <S.BorderTitle>Border Countries:</S.BorderTitle>
+              <S.ContainerButtons>
+                {country.borders.map(border => (
+                  <Button
+                    key={border}
+                    title={border}
+                    to={`country/${border}`}
+                  />
+                ))}
+              </S.ContainerButtons>
+            </S.FlexRow>
+          )}
         </S.ContainerDescription>
       </S.Container>
     </>

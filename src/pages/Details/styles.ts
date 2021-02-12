@@ -30,6 +30,8 @@ export const FlexRow = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 2rem;
+    max-width: 500px;
   }
 `;
 
@@ -67,5 +69,6 @@ export const ContainerText = styled.div`
 export const ContainerButtons = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 10px;
 `;
