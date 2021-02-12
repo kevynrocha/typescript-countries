@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 export const Wrapper = styled(Link)`
   background-color: ${({ theme }) => theme.colors.element};
-  box-shadow: 0 0 4px ${({ theme }) => theme.colors.shadow};
   width: 100%;
   border-radius: 4px;
   overflow: hidden;
   text-decoration: none;
+  display: block;
 `;
 
 export const Container = styled.div`
@@ -16,6 +16,7 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   width: 100%;
+  height: 180px;
   object-fit: cover;
 `;
 

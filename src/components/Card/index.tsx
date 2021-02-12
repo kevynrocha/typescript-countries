@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import { getFormattedNumbers } from '../../utils/functions';
+
 import * as S from './styles';
 
 interface CardProps {
+  id: string;
   index: number;
   image: string;
   country: string;
@@ -13,6 +16,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({
+  id,
   index,
   image,
   country,
@@ -27,7 +31,7 @@ const Card: React.FC<CardProps> = ({
       y: 0,
       opacity: 1,
       transition: {
-        delay: 0.2 * index,
+        delay: 0.1 * index,
         velocity: 0.2,
       },
     },
@@ -50,13 +54,13 @@ const Card: React.FC<CardProps> = ({
       whileHover="hover"
       variants={cardVariants}
     >
-      <S.Wrapper to={`country/${country}`}>
+      <S.Wrapper to={`country/${id}`}>
         <S.Image src={image} alt={country} />
         <S.Container>
           <S.Title>{country}</S.Title>
           <S.ContainerText>
             <S.StrongSubtitle>Population:</S.StrongSubtitle>
-            <S.Subtitle> {population} </S.Subtitle>
+            <S.Subtitle>{getFormattedNumbers(Number(population))}</S.Subtitle>
           </S.ContainerText>
           <S.ContainerText>
             <S.StrongSubtitle>Region:</S.StrongSubtitle>
