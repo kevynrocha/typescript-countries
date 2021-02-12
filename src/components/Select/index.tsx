@@ -2,19 +2,20 @@ import React from 'react';
 
 import { CountrySelect } from './styles';
 
-const Select: React.FC = () => {
+interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  options: string[];
+}
+
+const Select: React.FC<SelectProps> = ({ options, ...props }) => {
   console.log('select');
 
   return (
-    <CountrySelect>
-      <option value="volvo" disabled>
-        Filter by Region
-      </option>
-      <option value="saab">Africa</option>
-      <option value="opel">America</option>
-      <option value="audi">Asia</option>
-      <option value="audi">Europe</option>
-      <option value="audi">Oceania</option>
+    <CountrySelect {...props}>
+      {options.map(option => (
+        <option key={option} value={option}>
+          {option}
+        </option>
+      ))}
     </CountrySelect>
   );
 };
