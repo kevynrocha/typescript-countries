@@ -24,8 +24,6 @@ const Card: React.FC<CardProps> = ({
   region,
   capital,
 }: CardProps) => {
-  console.log('card');
-
   const cardVariants = {
     visible: {
       y: 0,
@@ -60,15 +58,15 @@ const Card: React.FC<CardProps> = ({
           <S.Title>{country}</S.Title>
           <S.ContainerText>
             <S.StrongSubtitle>Population:</S.StrongSubtitle>
-            <S.Subtitle>{getFormattedNumbers(Number(population))}</S.Subtitle>
+            <S.Subtitle>{getFormattedNumbers(population)}</S.Subtitle>
           </S.ContainerText>
           <S.ContainerText>
             <S.StrongSubtitle>Region:</S.StrongSubtitle>
-            <S.Subtitle> {region} </S.Subtitle>
+            <S.Subtitle>{region}</S.Subtitle>
           </S.ContainerText>
           <S.ContainerText>
             <S.StrongSubtitle>Capital:</S.StrongSubtitle>
-            <S.Subtitle> {capital} </S.Subtitle>
+            <S.Subtitle>{capital}</S.Subtitle>
           </S.ContainerText>
         </S.Container>
       </S.Wrapper>
