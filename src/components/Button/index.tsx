@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
 
 import * as S from './styles';
 
@@ -15,12 +14,9 @@ const Button: React.FC<ButtonProps> = ({
   to,
   ...props
 }: ButtonProps) => {
-  const themeContext = useContext(ThemeContext);
-
-  console.log('button');
   return (
     <S.CountryButton to={to} {...props}>
-      {leftIcon && <S.BackIcon color={themeContext.colors.text} />}
+      {leftIcon && <S.BackIcon />}
       <S.Title>{title}</S.Title>
     </S.CountryButton>
   );

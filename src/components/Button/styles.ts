@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { FiArrowLeft } from 'react-icons/fi';
+import { IconBaseProps } from 'react-icons';
 import { Link } from 'react-router-dom';
 
 export const CountryButton = styled(Link)`
@@ -16,9 +17,12 @@ export const CountryButton = styled(Link)`
   width: 120px;
 `;
 
-export const BackIcon = styled(FiArrowLeft).attrs({
-  size: 20,
-})`
+export const BackIcon = styled(FiArrowLeft).attrs(
+  ({ theme }): IconBaseProps => ({
+    size: 20,
+    color: theme.colors.text,
+  })
+)`
   margin-right: 10px;
 `;
 
